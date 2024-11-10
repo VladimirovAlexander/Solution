@@ -4,7 +4,7 @@ namespace Solution.Dto
 {
     public class TaskDto
     {
-        public List<Employee> Task1 { get; set; }
+        public List<EmployeeHireDateDto> Task1 { get; set; }
         public List<EmployeeDataDto> Task2 { get; set; }
 
         public LocationDto Task3 { get; set; }  

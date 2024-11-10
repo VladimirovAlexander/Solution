@@ -23,22 +23,26 @@ namespace Solution.Repository
         /// 1.	Отобразить реквизиты сотрудников, менеджеры которых устроились на работу в 2023 г., но при это сами эти работники устроились на работу до 2023 г.
         /// </summary>
         /// <returns></returns
-        public async Task<List<Employee>> GetEmployeeAsync()
+      
+        public async Task<List<EmployeeHireDateDto>> GetEmployeeAsync()
         {
-            var employees = await _context.Employees
-                .Where(e => e.HireDate < new DateOnly(2023, 1, 1)) 
-                .Join(
-                    _context.Employees, 
-                    e => e.ManagerId,   
-                    m => m.EmployeeId,  
-                    (e, m) => new { Employee = e, Manager = m } 
-                )
-                .Where(em => em.Manager.HireDate >= new DateOnly(2023, 1, 1) && em.Manager.HireDate < new DateOnly(2024, 1, 1))
-                .Select(em => em.Employee) 
-                .ToListAsync();
+            var employees = await (
+                from e in _context.Employees
+                where e.HireDate < new DateOnly(2023, 1, 1)
+                join emp in _context.Employees on e.ManagerId equals emp.EmployeeId
+                where emp.HireDate >= new DateOnly(2023, 1, 1) && emp.HireDate < new DateOnly(2024, 1, 1)
+                select new EmployeeHireDateDto { 
 
+                    FirstName = e.FirstName,
+                    LastName = e.LastName,
+                    HireDate = e.HireDate,
+                    ManagerId = e.ManagerId,
+
+                }).ToListAsync();
+                
             return employees;
         }
+
         /// <summary>
         /// 2.	Отобразить данные по сотрудникам: из какого департамента и какими текущими задачами они занимаются.
         /// Результат отобразить в трех полях: employees.First_name, jobs.Job_title, departments.Department_name

@@ -6,7 +6,7 @@ namespace Solution.Interface
 {
     public interface IResultRepository
     {
-        Task<List<Employee>> GetEmployeeAsync();
+        Task<List<EmployeeHireDateDto>> GetEmployeeAsync();
 
         Task<List<EmployeeDataDto>> GetDataEmployeeAsync();
 
