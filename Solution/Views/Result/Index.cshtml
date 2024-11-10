@@ -1,0 +1,354 @@
+﻿@model TaskDto
+@using Solution.Dto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Список сотрудников</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Задание 1 </h2>
+
+        @if (Model.Task1 == null || !Model.Task1.Any())
+        {
+            <p class="text-center">Данные не найдены.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Дата найма</th>
+                        <th>ID Менеджера</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Task1.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model.Task1[i].FirstName</td>
+                            <td>@Model.Task1[i].LastName</td>
+                            <td>@Model.Task1[i].HireDate.ToString("yyyy-MM-dd")</td>
+                            <td>@Model.Task1[i].ManagerId</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        <h2 class="text-center mb-4">Задание 2 </h2>
+
+        @if (Model.Task2 == null || !Model.Task2.Any())
+        {
+            <p class="text-center">Данные не найдены.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Имя</th>
+                        <th>Текущая задача</th>
+                        <th>Департамент</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Task2.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model.Task2[i].FirstName</td>
+                            <td>@Model.Task2[i].JobTitle</td>
+                            <td>@Model.Task2[i].DepartmentName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        <h2 class="text-center mb-4">Задание 3 </h2>
+
+        @if (Model.Task3 == null )
+        {
+            <p class="text-center">Данные не найдены.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Город</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>@Model.Task3.City</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        }
+
+        <h2 class="text-center mb-4">Задание 4</h2>
+
+        @if (Model.Task4 == null || !Model.Task4.Any())
+        {
+            <p class="text-center">Данные не найдены.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Email</th>
+                        <th>Телефон</th>
+                        <th>Дата найма</th>
+                        <th>JobId</th>
+                        <th>Зарплата</th>
+                        <th>Комиссия</th>
+                        <th>ManagerId</th>
+                        <th>DepartmentId</th>
+                        <th>Должность</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Task4.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model.Task4[i].FirstName</td>
+                            <td>@Model.Task4[i].LastName</td>
+                            <td>@Model.Task4[i].Email</td>
+                            <td>@Model.Task4[i].PhoneNumber</td>
+                            <td>@Model.Task4[i].HireDate.ToString("dd-MM-yyyy")</td>
+                            <td>@Model.Task4[i].JobId</td>
+                            <td>@Model.Task4[i].Salary</td>
+                            <td>@Model.Task4[i].CommissionPct</td>
+                            <td>@Model.Task4[i].ManagerId</td>
+                            <td>@Model.Task4[i].DepartmentId</td>
+                            <td>@Model.Task4[i].JobTitle</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        <h2 class="text-center mb-4">Задание 5</h2>
+
+        @if (Model.Task5 == null || !Model.Task5.Any())
+        {
+            <p class="text-center">Данные не найдены.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Имя</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Task5.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model.Task5[i].FirstName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        <h2 class="text-center mb-4">Задание 6</h2>
+
+        @if (Model.Task6 == null || !Model.Task6.Any())
+        {
+            <p class="text-center">Данные не найдены.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Департамент</th>
+                        <th>Работа</th>
+                        <th>Улица</th>
+                        <th>Страна</th>
+                        <th>Регион</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Task6.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model.Task6[i].FirstName</td>
+                            <td>@Model.Task6[i].LastName</td>
+                            <td>@Model.Task6[i].DepartmentName</td>
+                            <td>@Model.Task6[i].JobTitle</td>
+                            <td>@Model.Task6[i].StreetAddress</td>
+                            <td>@Model.Task6[i].CountryName</td>
+                            <td>@Model.Task6[i].RegionName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        <h2 class="text-center mb-4">Задание 7</h2>
+
+        @if (Model.Task7 == null || !Model.Task7.Any())
+        {
+            <p class="text-center">Данные не найдены.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Регион</th>
+                        <th>Количество сотрудников</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Task7.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model.Task7[i].RegionName</td>
+                            <td>@Model.Task7[i].AverageEmployee</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        <h2 class="text-center mb-4">Задание 8</h2>
+
+        @if (Model.Task8 == null || !Model.Task8.Any())
+        {
+            <p class="text-center">Данные не найдены.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Название департамента</th>
+                        <th>Минимальная зарплата</th>
+                        <th>Максимальная зарплата</th>
+                        <th>Ранняя дата приема</th>
+                        <th>Поздняя дата приема</th>
+                        <th>Количество сотрудников</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Task8.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model.Task8[i].DepartmentName</td>
+                            <td>@Model.Task8[i].MinSalary</td>
+                            <td>@Model.Task8[i].MaxSalary</td>
+                            <td>@Model.Task8[i].StartDate</td>
+                            <td>@Model.Task8[i].EndDate</td>
+                            <td>@Model.Task8[i].EmployeeCount</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        <h2 class="text-center mb-4">Задание 9</h2>
+
+        @if (Model.Task9 == null || !Model.Task9.Any())
+        {
+            <p class="text-center">Данные не найдены.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Первые три цифры от номера телефона</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Task9.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model.Task9[i].FirstName</td>
+                            <td>@Model.Task9[i].LastName</td>
+                            <td>@Model.Task9[i].PhoneNumber</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        <h2 class="text-center mb-4">Задание 10</h2>
+
+        @if (Model.Task10 == null || !Model.Task10.Any())
+        {
+            <p class="text-center">Данные не найдены.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Почта</th>
+                        <th>Номер телефона</th>
+                        <th>Дата</th>
+                        <th>Зарплата</th>
+                        <th>Id менеджера</th>
+                        <th>Название департамента</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Task10.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model.Task10[i].FirstName</td>
+                            <td>@Model.Task10[i].LastName</td>
+                            <td>@Model.Task10[i].Email</td>
+                            <td>@Model.Task10[i].PhoneNumber</td>
+                            <td>@Model.Task10[i].HireDate.ToString("dd-MM-yyyy")</td>
+                            <td>@Model.Task10[i].Salary</td>
+                            <td>@Model.Task10[i].ManagerId</td>
+                            <td>@Model.Task10[i].DepartmentName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</body>
+</html>
